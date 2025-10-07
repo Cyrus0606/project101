@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>我們是如何準備編程類競賽</title>
+  <style>
+    :root{
+      --primary:#1e293b;
+      --secondary:#06b6d4;
+      --accent:#a78bfa;
+      --mint:#34d399;
+      --light:#f8fafc;
+      --text:#0f172a;
+    }
+    *{box-sizing:border-box;font-family:'Segoe UI','Microsoft JhengHei',sans-serif;margin:0;padding:0}
+    body{background:#f7fbff;color:var(--text);line-height:1.6;overflow-x:hidden}
+    header{background:linear-gradient(135deg,var(--primary),#0b1020);color:#fff;text-align:center;padding:2.2rem 1rem;box-shadow:0 6px 18px rgba(2,6,23,.35)}
+    h1{font-size:2rem;margin-bottom:.4rem}
+    .subtitle{opacity:.95}
+    .container{max-width:1080px;margin:0 auto;padding:2rem 1rem}
+    .section-title{color:#0b1020;text-align:center;margin-bottom:1.2rem;position:relative;padding-bottom:.5rem;font-weight:800}
+    .section-title::after{content:'';position:absolute;left:50%;transform:translateX(-50%);bottom:0;width:120px;height:3px;background:linear-gradient(90deg,var(--secondary),var(--accent))}
+
+    .grid{display:grid;gap:1rem}
+    .grid-auto{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+    .card{background:#ffffff;border-radius:14px;padding:1rem;box-shadow:0 10px 24px rgba(15,23,42,.08);transition:.25s;border:1px solid rgba(2,6,23,.06)}
+    .card:hover{transform:translateY(-4px);box-shadow:0 16px 32px rgba(15,23,42,.12)}
+    .card h3{color:var(--primary);margin-bottom:.6rem;display:flex;align-items:center;gap:.5rem}
+    .topic-list{margin-left:1rem}
+    .topic-list li{margin:.35rem 0}
+    .tagbar{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.5rem}
+    .tag{font-size:12px;padding:6px 10px;border-radius:999px;background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.25)}
+
+    .plan-card{border-top:4px solid var(--accent)}
+    .plan-card:hover{border-top-color:var(--secondary)}
+
+    .links a{color:var(--secondary);text-decoration:none}
+    .links a:hover{text-decoration:underline}
+
+    footer{background:linear-gradient(135deg,#0b1020,var(--primary));color:#e5e7eb;text-align:center;padding:1.6rem 1rem;margin-top:2rem}
+
+    .bgfx{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+    .bgfx::before{content:"";position:absolute;left:50%;top:50%;width:120vmax;height:120vmax;transform:translate(-50%,-50%) rotate(0deg);background:conic-gradient(from 0deg, rgba(6,182,212,.14), rgba(167,139,250,.14), rgba(52,211,153,.12), rgba(6,182,212,.14));filter:blur(100px);animation:spin 42s linear infinite}
+    .bgfx::after{content:"";position:absolute;inset:0;background:
+      radial-gradient(900px 520px at 8% 18%, rgba(6,182,212,.10), transparent 60%),
+      radial-gradient(1000px 520px at 92% 86%, rgba(167,139,250,.10), transparent 60%),
+      radial-gradient(900px 520px at 50% 110%, rgba(52,211,153,.08), transparent 60%);
+    }
+    @keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+    @media(max-width:768px){h1{font-size:1.6rem}}
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="bgfx" aria-hidden="true"></div>
+  <header>
+    <div class="container">
+      <h1>編程競賽備戰指南</h1>
+      <p class="subtitle">MOAI｜NOI｜MOI｜NOIP｜CSP-J/S｜Python 解難</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="contests">
+      <h2 class="section-title">比賽清單</h2>
+      <div class="card">
+        <ul class="topic-list">
+          <li>國際人工智能奧林匹克競賽澳門選拔賽（MOAI）</li>
+          <li>全國青少年資訊學奧林匹克競賽（NOI）</li>
+          <li>澳門信息學奧林匹克選拔賽（MOI）</li>
+          <li>全澳中學生 Python 解難比賽</li>
+          <li>全國青少年資訊學奧林匹克聯賽（NOIP）</li>
+          <li>中國電腦學會（CCF）專業級軟體能力認證（CSP-J/S）</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="algos">
+      <h2 class="section-title">競賽常見演算法</h2>
+      <div class="grid grid-auto">
+        <div class="card">
+          <h3><i class="fa-solid fa-arrows-left-right-to-line"></i> 基礎套路</h3>
+          <ul class="topic-list">
+            <li>雙指針 / 滑動窗口、前綴和 / 差分</li>
+            <li>二分查找（答案二分、邊界判定）</li>
+            <li>排序家族（快排、歸併、桶/基數）</li>
+            <li>貪心（區間選擇、排程、字典序）</li>
+          </ul>
+          <div class="tagbar"><span class="tag">O(n log n)</span><span class="tag">單調性</span><span class="tag">不變量</span></div>
+        </div>
+        <div class="card">
+          <h3><i class="fa-solid fa-diagram-project"></i> 圖論</h3>
+          <ul class="topic-list">
+            <li>BFS/DFS、拓撲排序、連通分量</li>
+            <li>最短路：Dijkstra、SPFA、Floyd</li>
+            <li>最小生成樹：Kruskal / Prim（並查集）</li>
+            <li>樹：LCA、樹徑、DFS 次序、樹上 DP</li>
+          </ul>
+          <div class="tagbar"><span class="tag">鄰接表</span><span class="tag">堆優先隊列</span><span class="tag">並查集</span></div>
+        </div>
+        <div class="card">
+          <h3><i class="fa-solid fa-layer-group"></i> 資料結構</h3>
+          <ul class="topic-list">
+            <li>堆、單調棧/隊列</li>
+            <li>樹狀數組、線段樹（含懶標記）</li>
+            <li>字典樹（Trie）、並查集（DSU）</li>
+            <li>哈希（開放定址 / 滾動哈希）</li>
+          </ul>
+          <div class="tagbar"><span class="tag">區間查詢</span><span class="tag">動態維護</span><span class="tag">位運算</span></div>
+        </div>
+        <div class="card">
+          <h3><i class="fa-solid fa-square-root-variable"></i> 數學 & DP</h3>
+          <ul class="topic-list">
+            <li>數論：GCD、快速冪、篩法、模運算</li>
+            <li>組合數 & 卡特蘭、容斥、概率期望</li>
+            <li>DP：背包、區間、樹形、狀壓、數位 DP</li>
+            <li>字符串：KMP、Z 函數、Manacher</li>
+          </ul>
+          <div class="tagbar"><span class="tag">轉移設計</span><span class="tag">狀態壓縮</span><span class="tag">複雜度</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="plan">
+      <h2 class="section-title">4 週精簡計劃</h2>
+      <div class="grid grid-auto">
+        <div class="card plan-card"><h3><i class="fa-solid fa-rocket"></i> 第 1 週｜語法模板</h3><p>快讀、容器、基本模板。每天 2 題同類型。</p></div>
+        <div class="card plan-card"><h3><i class="fa-solid fa-shuffle"></i> 第 2 週｜貪心哈希</h3><p>區間與排程題；哈希計數/去重。</p></div>
+        <div class="card plan-card"><h3><i class="fa-solid fa-network-wired"></i> 第 3 週｜圖論入門</h3><p>BFS/DFS、最短路、拓撲。各做 2-3 題。</p></div>
+        <div class="card plan-card"><h3><i class="fa-solid fa-chess-board"></i> 第 4 週｜DP 練習</h3><p>背包/區間/狀壓各 1 題 + 1 題總結。</p></div>
+      </div>
+    </section>
+
+    <section id="resources">
+      <h2 class="section-title">寫碼平台與資源</h2>
+      <div class="card">
+        <ul class="topic-list links">
+          <li><a href="https://leetcode.com/" target="_blank">LeetCode</a> ｜ <a href="https://www.luogu.com.cn/" target="_blank">洛谷 Luogu</a> ｜ <a href="https://codeforces.com/" target="_blank">Codeforces</a> ｜ <a href="https://atcoder.jp/" target="_blank">AtCoder</a></li>
+          <li><a href="https://oi-wiki.org/" target="_blank">OI Wiki</a> ｜ <a href="https://cp-algorithms.com/" target="_blank">CP-Algorithms</a> ｜ <a href="https://usaco.guide/" target="_blank">USACO Guide</a></li>
+          <li>題單建議：LeetCode 熱門 75、洛谷入門 & 普及、CF Div.3 最近三場</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p><strong>Impossible is Nothing</strong></p>
+  </footer>
+</body>
+</html>
